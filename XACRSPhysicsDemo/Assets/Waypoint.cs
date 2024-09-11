@@ -11,6 +11,8 @@ public class Waypoint : MonoBehaviour
     public bool isStartingWayPoint = false;
 
     public Timer timer;
+    public WaypointSpawner waypointSpawner;
+
     public void Start()
     {
         // Initialize platformBounds based on the ground's scale
@@ -29,6 +31,7 @@ public class Waypoint : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Check if the collision is with the weapon and the calculate the force of the weapon.
         Collect();
 
         // Check if the object colliding with the collectible has a Weapon script
@@ -55,7 +58,7 @@ public class Waypoint : MonoBehaviour
             StartGame();
         }
         // Disable the collectible and start respawn coroutine
-        Destroy(gameObject); // Change it to Destroy
+        Destroy(gameObject);
 
        
     }
