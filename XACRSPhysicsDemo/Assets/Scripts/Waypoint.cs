@@ -9,10 +9,13 @@ public class Waypoint : MonoBehaviour
 
     public bool isStartingWayPoint = false;
 
-    public Timer timer; //Text GUI Script
+    public AudioSource beep;
+    public Timer timer; //Text GUI Script used by the Start Way Point
 
     public void Start()
     {
+        beep = GetComponent<AudioSource>();
+        beep.Play();
         // Initialize platformBounds based on the ground's scale
         if (ground != null)
         {
@@ -44,6 +47,7 @@ public class Waypoint : MonoBehaviour
 
     public void CollectWaypoint()
     {
+        beep.Play();
         if (isStartingWayPoint)
         {
             StartGame();

@@ -64,8 +64,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794290534406145925, guid: 57a3300d423e39b4fb705c4c7cf9f9a0, type: 3}
+      propertyPath: beep
+      value: 
+      objectReference: {fileID: 2303088181880935965}
+    - target: {fileID: 5794290534406145925, guid: 57a3300d423e39b4fb705c4c7cf9f9a0, type: 3}
       propertyPath: isStartingWayPoint
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a3300d423e39b4fb705c4c7cf9f9a0, type: 3}
+--- !u!82 &2303088181880935965 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -6707867696704548694, guid: 57a3300d423e39b4fb705c4c7cf9f9a0, type: 3}
+  m_PrefabInstance: {fileID: 4404216564064339639}
+  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,14 @@
+XACRS - XR Advanced Combat Robotics Simulator
+
+This is a demo of a control drill where you control your bot to hit waypoints as efficiently as possible.
+
+
+These are PC controls meant to mimic an RC controller with two joysticks.
+
+W Key: Spin weapon
+S Key: Stop Weapon
+
+Arrow Keys: Drive the bot. These controls simulate realistic bot turning & handling. 
+	Left/Right: Rotate the Bot. 
+	Up/Down: Move forward and backward of the bot.
+   	

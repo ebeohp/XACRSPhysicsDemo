@@ -87,11 +87,11 @@ public class Weapon : MonoBehaviour
         
         if(scoreAdd < 1)
         {
-            timer.smallScoreText.text = "Spin it Up!\n +" + 1;
+            timer.smallScoreText.text = "Spin it Up!\n +" + timer.score.ToString();
         }
         else if (scoreAdd > 50)
         {
-            timer.smallScoreText.text = "Hit!\n +" + scoreAdd.ToString();
+            timer.smallScoreText.text = "Hit!\n +" + timer.score.ToString();
         }
     }
 
