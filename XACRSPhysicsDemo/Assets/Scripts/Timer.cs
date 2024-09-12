@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour //RENAME TO TEXT
+/// <summary>
+/// IMPORTANT: This Timer Class has evolved to become a general UI controller class.
+/// Would need to fix the organizational naming of this reference.
+/// </summary>
+public class Timer : MonoBehaviour 
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI scoreText; 
