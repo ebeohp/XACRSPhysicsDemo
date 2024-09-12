@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    public float minSpinForceRequired = 500f; // Minimum force required to collect
     public GameObject ground; // To get the scale on x and z
     private Vector2 platformBounds;
 
     public bool isStartingWayPoint = false;
 
-    public Timer timer;
-    public WaypointSpawner waypointSpawner;
+    public Timer timer; //Text GUI Script
 
     public void Start()
     {
@@ -32,33 +30,28 @@ public class Waypoint : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Check if the collision is with the weapon and the calculate the force of the weapon.
-        Collect();
+        //Collect();
 
         // Check if the object colliding with the collectible has a Weapon script
-        //Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-        //if (weapon != null)
-        //{
-            //float weaponForce = weapon.GetSpinForce(); // Assuming Weapon script has a GetSpinForce method
-            
-            
-            // Check if the weapon force is enough to collect the collectible
-            //if (weaponForce >= minSpinForceRequired)
-            //{
-                //Collect();
-            //}
-        //}
+        Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+        if (weapon != null)
+        {
+            CollectWaypoint();    
+        }
 
         
     }
 
-    public void Collect()
+    public void CollectWaypoint()
     {
         if (isStartingWayPoint)
         {
             StartGame();
         }
         // Disable the collectible and start respawn coroutine
+        
         Destroy(gameObject);
+        
 
        
     }

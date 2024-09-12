@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour //RENAME TO TEXT
 {
     [SerializeField] TextMeshProUGUI timerText;
-    public GameObject scoreText;
+    [SerializeField] TextMeshProUGUI scoreText; 
+
+    [SerializeField] public TextMeshProUGUI smallScoreText; 
+    public GameObject scoreTextObject;
     [SerializeField] float remainingTime;
-    // Update is called once per frame
+    public float score = 0f; // Track the score
 
     public bool timerStarted = false;
 
@@ -17,6 +20,8 @@ public class Timer : MonoBehaviour
     {
         if(timerStarted)
         {
+            
+
             if(remainingTime > 0)
             {  
                 remainingTime -= Time.deltaTime;
@@ -31,17 +36,20 @@ public class Timer : MonoBehaviour
             int minutes = Mathf.FloorToInt(remainingTime/60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            
         }
         
     }
+    
     public void StartTimer()
     {
         timerStarted = true;
     }
     public void EndTimer()
     {
+        timerStarted = false;
         //Create score text
-        scoreText.SetActive(true);
-        //scoreText.text = 1000; // Replace with a counter for how many way points gotten.
+        scoreTextObject.SetActive(true);
+        scoreText.text = "Score:\n" + score.ToString();
     }
 }

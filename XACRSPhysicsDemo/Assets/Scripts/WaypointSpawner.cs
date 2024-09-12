@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaypointSpawner : MonoBehaviour
 {
-    public GameObject startWaypointPrefab;
     public GameObject waypointPrefab; //Red
     
     public GameObject ground;

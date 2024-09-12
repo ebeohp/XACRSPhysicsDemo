@@ -14,14 +14,18 @@ public class BotController : MonoBehaviour
 
     //Store bot parent game objects here.
 
-    public Wheel wheelLeft; // For testing
-    public Wheel wheelRight; // For testing
     public enum BotSelection
     {
         TheThrongler, // The Throngler is Horizontal 2 Wheel Drive
         TheCube, 
     }
     public BotSelection botSelection;
+    /// <summary>
+    /// The Cube is just placeholder.
+    /// In the future, I'd like to have a bot selection menu, like a choose your player.
+    /// Each bot should have it's own unique properties already attached to it so the controller knows what input is valid.
+    /// i.e. If it is a passive weapon bot, the controller should know not to try to spin up a weapon.
+    /// </summary>
 
     // Reference to the current bot
     private IBot bot;
@@ -36,8 +40,6 @@ public class BotController : MonoBehaviour
         InitializeBot();
     }
    
-    
-
     private void InitializeBot()
     {
         switch (botSelection)
@@ -57,6 +59,13 @@ public class BotController : MonoBehaviour
     }
     private void Update()
     {
+        /// <summary>
+        /// This calls specific movement scripts within each bot's custom movement.
+        /// It is important to note that "forward" and "backward" is all relative to the bot.
+        /// This is to simulate important combat roboticist skills such as driving upside down or turning.
+        /// This is PC Key based so there is no diagonal movement. 
+        /// An RC Controller can go diagonal throttle but it only works on input that is on a sliding scale like joysticks!
+        /// </summary>
         if(Input.GetKey(KeyCode.UpArrow))
         {
             bot.MoveForward();
@@ -83,7 +92,11 @@ public class BotController : MonoBehaviour
         {
             bot.SpinUpWeapon();
         }
-        if(Input.GetKey(KeyCode.S))
+        else if(Input.GetKey(KeyCode.S))
+        {
+            bot.SpinDownWeapon();
+        }
+        else
         {
             bot.SpinDownWeapon();
         }

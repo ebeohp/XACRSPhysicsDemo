@@ -13,6 +13,9 @@ public class ThronglerController : MonoBehaviour, IBot // Inherit from a overall
     public float wheelSpinForce = 50f;
     public float wheelTargetVelocity = 500f;
 
+    public float weaponSpinForce = 100f;
+    public float weaponTargetVelocity = 1000f;
+
     public enum SpinWeaponProgram // These are the most common types of programming for spinning weapons
     {
         NegativeToPositive, // -1 to +1 Spin
@@ -56,21 +59,22 @@ public class ThronglerController : MonoBehaviour, IBot // Inherit from a overall
         wheelRight.StopSpin();
     }
 
+    /// <summary>
+    /// NOTE: Bot weapons can to have different programming for what "spin up" and "spin down" means.
+    /// There is -1 to +1 spin. Spin up means clockwise. Spin down can mean counter clockwise.
+    /// There is 0 to 1 spin. A 0 is spin down to stop applying more force to it.
+    /// For now, these two methods are for the 0 to 1 Spin. 0 on Joysticks is technically not a brake. It is a brake here on PC.
+    /// </summary>
     public void SpinUpWeapon()
     {
         // Implement weapon functionality
-        Debug.Log("Throngler weapon activated");
-        wheelLeft.StopSpin();
-        wheelRight.StopSpin();
-        //Call Weapon Class Method
-
+        weapon.SpinUp(weaponSpinForce, weaponTargetVelocity);
     }
 
     public void SpinDownWeapon()
     {
         // Implement weapon functionality
-        Debug.Log("Throngler weapon activated");
-
+        weapon.StopSpin();
         //Call Weapon Class Method
     }
 }
